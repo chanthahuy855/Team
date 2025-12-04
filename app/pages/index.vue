@@ -3,11 +3,8 @@
     <!-- <UPageHero
       title="Nuxt Starter Template"
       description="A production-ready starter template powered by Nuxt UI. Build beautiful, accessible, and performant applications in minutes, not hours."
-    
     /> -->
-
     <UPageSection>
-
       <UPageCTA
         title="Ready to build your next Nuxt app?"
         description="Join thousands of developers building with Nuxt and Nuxt UI. Get this template and start shipping today."
