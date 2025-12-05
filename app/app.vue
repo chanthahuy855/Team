@@ -1,50 +1,49 @@
 <script setup>
-useHead({
-  meta: [
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' }
-  ],
-  link: [
-    { rel: 'icon', href: '/favicon.ico' }
-  ],
-  htmlAttrs: {
-    lang: 'en'
-  }
-})
+  useHead({
+    meta: [
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+    ],
+    link: [
+      { rel: 'icon', href: '/favicon.ico' }
+    ],
+    htmlAttrs: {
+      lang: 'en'
+    }
+  })
 
-const title = 'Nuxt Starter Template'
-const description = 'A production-ready starter template powered by Nuxt UI. Build beautiful, accessible, and performant applications in minutes, not hours.'
+  const title = 'System Engineering Team'
+  const description = 'A contact Portfolio for System Engineering Team to Support Robots'
 
-useSeoMeta({
-  title,
-  description,
-  ogTitle: title,
-  ogDescription: description,
-  ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
-  twitterImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
-  twitterCard: 'summary_large_image'
-})
+  useSeoMeta({
+    title,
+    description,
+    ogTitle: title,
+    ogDescription: description,
+    ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
+    twitterImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
+    twitterCard: 'summary_large_image'
+  })
 </script>
 
 <template>
   <UApp>
-    <!-- <UHeader >
+    <UHeader >
       <template #left>
         <NuxtLink to="/">
-          <AppLogo class="w-auto h-6 shrink-0" />
+          <!-- <AppLogo class="w-auto h-6 shrink-0" /> -->
+           System Engineering
         </NuxtLink>
-
-     <TemplateMenu /> 
+        <!-- <TemplateMenu />  -->
       </template>
-
       <template #right>
-        <UColorModeButton />
-
-        
+            <UColorModeButton />
       </template>
-    </UHeader> -->
+    </UHeader>
 
     <UMain>
-      <NuxtPage />
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
     </UMain>
 
     <USeparator icon="" />

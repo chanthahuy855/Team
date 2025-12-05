@@ -1,29 +1,29 @@
+<script setup lang="ts">
+</script>
+
 <template>
   <div>
     <!-- <UPageHero
       title="Nuxt Starter Template"
       description="A production-ready starter template powered by Nuxt UI. Build beautiful, accessible, and performant applications in minutes, not hours."
     /> -->
-    <UPageSection>
+    
+    <UPageSection >
       <UPageCTA
-        title="Ready to build your next Nuxt app?"
-        description="Join thousands of developers building with Nuxt and Nuxt UI. Get this template and start shipping today."
+        title="System Engineering Team"
+        description="Contact us if you want to automate your work..."
         variant="subtle"
         :links="[{
-          label: 'Start building',
-          to: 'https://ui.nuxt.com/docs/getting-started/installation/nuxt',
+          label: 'Contact Us',
+          to: '#',
           target: '_blank',
           trailingIcon: 'i-lucide-arrow-right',
           color: 'neutral'
-        }, {
-          label: 'View on GitHub',
-          to: 'https://github.com/nuxt-ui-templates/starter',
-          target: '_blank',
-          icon: 'i-simple-icons-github',
-          color: 'neutral',
-          variant: 'outline'
-        }]"
+        }, 
+       
+        ]"
       />
+      <TeamGrid />
     </UPageSection>
     
   </div>
