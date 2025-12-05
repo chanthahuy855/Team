@@ -27,18 +27,17 @@
 
 <template>
   <UApp>
-    <UHeader >
+    <!-- <UHeader >
       <template #left>
         <NuxtLink to="/">
-          <!-- <AppLogo class="w-auto h-6 shrink-0" /> -->
            System Engineering
         </NuxtLink>
-        <!-- <TemplateMenu />  -->
+ 
       </template>
       <template #right>
             <UColorModeButton />
       </template>
-    </UHeader>
+    </UHeader> -->
 
     <UMain>
       <NuxtLayout>
@@ -47,25 +46,20 @@
     </UMain>
 
     <USeparator icon="" />
+    <AppFooter />
 
-    <UFooter >
+    <!-- <UFooter :ui="{root:'fixed  bottom-0 left-0 right-0 h-14 bg-slate-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 flex justify-around content-center  items-center shadow-lg z-10'}" >
       <template #left>
         <p class="text-sm text-muted">
           System Engineering • © {{ new Date().getFullYear() }}
         </p>
+        <p>
+          <UColorModeButton />
+        </p>
+          
+
       </template>
 
-      <template #right>
-        <UColorModeButton />
-        <!-- <UButton
-          to="https://github.com/nuxt-ui-templates/starter"
-          target="_blank"
-          icon="i-simple-icons-github"
-          aria-label="GitHub"
-          color="neutral"
-          variant="ghost"
-        /> -->
-      </template>
-    </UFooter>
+    </UFooter> -->
   </UApp>
 </template>

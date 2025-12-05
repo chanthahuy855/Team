@@ -4,24 +4,24 @@
       <div
         v-for="(member, idx) in teamMembers" :key="idx"
         class="
-          bg-red-900 dark:bg-gray-900 border border-red-700 dark:border-gray-300 rounded-xl p-6
+          bg-red-900 dark:bg-gray-900 border border-red-700 dark:border-gray-300 rounded-xl p-3
           flex flex-row items-center
           sm:flex-col sm:items-center sm:text-center
           transition-colors duration-200
         "
       >
         <!-- Left: profile image -->
-        <div class="w-40 h-40 rounded-full border-2 border-white dark:border-gray-500 bg-red-50 dark:bg-gray-800 overflow-hidden flex-shrink-0 transition-colors duration-200">
+        <div class="w-20 h-20  lg:w-36 lg:h-36 rounded-full border-2 border-white dark:border-gray-500 bg-red-50 dark:bg-gray-800 overflow-hidden flex-shrink-0 transition-colors duration-200">
           <NuxtImg :src="member.img"
                    sizes="100vw sm:50vw md:400px"
-                   alt="Profile Picture" />
+                   :alt="`${member.name} Profile`" />
         </div>
 
         <!-- Right/Below: info + links -->
         <div class="flex-grow flex flex-col justify-center sm:justify-center sm:mt-4">
           <div class="flex flex-col justify-center items-center text-center sm:items-center sm:text-center px-2">
             <h4 class="text-red-50 dark:text-gray-100 text-base font-semibold transition-colors duration-200">{{ member.name }}</h4>
-            <p class="text-orange-200 dark:text-yellow-400 text-[13px] mt-1 transition-colors duration-200">{{ member.role }}</p>
+            <p class="text-orange-200 dark:text-gray-400 text-[13px] mt-1 transition-colors duration-200">{{ member.role }}</p>
           </div>
           <div class="space-x-4 mt-4 flex justify-center items-center">
             <a :href="member.telegramLink || '#'"
@@ -75,7 +75,7 @@
       <!-- Email -->
       <div class="group">
         <div class="flex items-center gap-4 p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-yellow-500 hover:bg-blue-50/50 dark:hover:bg-gray-800 transition-all duration-200">
-          <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-gray-800 flex items-center justify-center">
+          <div class="w-10 h-10  rounded-lg bg-blue-100 dark:bg-gray-800 flex items-center justify-center">
             <UIcon name="i-lucide-mail" class="size-5 text-blue-600 dark:text-blue-400" />
           </div>
           <div class="flex-1 min-w-0">
