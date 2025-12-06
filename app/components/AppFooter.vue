@@ -14,7 +14,7 @@ const items = ref<NavigationMenuItem[][]>([
 </script>
 
 <template>
-  <div class="flex items-center gap-4">
+  <div class="flex items-center gap-4 px-4 mb-2">
     <UNavigationMenu color="neutral" variant="link" :items="items" class="w-full" />
     <UColorModeButton />
   </div>
