@@ -12,16 +12,16 @@
   })
 
   const title = 'System Engineering Team'
-  const description = 'A contact Portfolio for System Engineering Team to Support Robots'
+  const description = 'System Engineering Team focused on delivering solutions for Robotic Process Automation (RPA), E-Form workflows, Front-End applications, and Data Visualization'
 
   useSeoMeta({
     title,
     description,
     ogTitle: title,
     ogDescription: description,
-    ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
-    twitterImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
-    twitterCard: 'summary_large_image'
+    ogImage:'images/se-team.png',
+    twitterImage:'images/se-team.png',
+    twitterCard:'summary_large_image'
   })
 </script>
 
