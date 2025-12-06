@@ -27,7 +27,8 @@
             <a :href="member.telegramLink || '#'"
                target="_blank" rel="noopener"
                class="w-7 h-7 inline-flex items-center justify-center rounded-full hover:bg-red-100 dark:hover:bg-gray-800 group transition-colors duration-200">
-              <Icon name="i-lucide-message-circle-more" class="w-5 h-5 text-stone-200 dark:text-gray-400 group-hover:text-red-600 dark:group-hover:text-yellow-400 transition-colors duration-200" />
+              <Icon name="i-stash-telegram" class="w-5 h-5 text-stone-200 dark:text-gray-400 group-hover:text-red-600 dark:group-hover:text-yellow-400 transition-colors duration-200" />
+
             </a>
             <a :href="member.emailLink ? `mailto:${member.emailLink}` : '#'"
                class="w-7 h-7 inline-flex items-center justify-center rounded-full hover:bg-red-100 dark:hover:bg-gray-800 group transition-colors duration-200">
