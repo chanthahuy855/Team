@@ -1,13 +1,23 @@
 <template>
-  <div class="px-0 mb-5">
-    <div class="grid xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 gap-x-6 gap-y-6">
+  <div class="px-4 pb-8">
+    <div class="grid xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-2 gap-x-6 gap-y-4">
       <div
         v-for="(member, idx) in teamMembers" :key="idx"
         class="
-          bg-red-900 dark:bg-gray-900 border border-red-700 dark:border-gray-300 rounded-xl p-3
-          flex flex-row items-center
-          sm:flex-col sm:items-center sm:text-center
-          transition-colors duration-200
+            backdrop-blur-xl 
+            bg-gradient-to-br from-white/20 to-white/5
+            dark:from-gray-900/30 dark:to-gray-800/20
+            border border-white/20 dark:border-gray-500
+            shadow-lg shadow-black/5
+            dark:shadow-white/5
+
+            rounded-xl p-3 px-4
+            flex flex-row items-center
+            sm:flex-col sm:items-center sm:text-center
+            transition-all duration-300
+            hover:shadow-xl hover:shadow-black/10
+            dark:hover:shadow-white/10
+            
         "
       >
         <!-- Left: profile image -->
@@ -18,25 +28,27 @@
         </div>
 
         <!-- Right/Below: info + links -->
-        <div class="flex-grow flex flex-col justify-center sm:justify-center sm:mt-4">
-          <div class="flex flex-col justify-center items-center text-center sm:items-center sm:text-center px-2">
-            <h4 class="text-red-50 dark:text-gray-100 text-base font-semibold transition-colors duration-200">{{ member.name }}</h4>
+        <div class="flex-grow flex flex-col justify-center sm:justify-center sm:mt-4 px-2">
+          <!-- <div class="flex flex-col justify-center items-center text-center sm:items-center sm:text-center px-2"> -->
+          <div class="flex flex-col px-5">
+          
+          <h4 class="text-white dark:text-gray-100 text-base font-semibold transition-colors duration-200">{{ member.name }}</h4>
             <p class="text-orange-200 dark:text-gray-400 text-[13px] mt-1 transition-colors duration-200">{{ member.role }}</p>
           </div>
-          <div class="space-x-4 mt-4 flex justify-center items-center">
+          <!-- <div class="space-x-4 mt-4 flex justify-center items-center"> -->
+          <div class="space-x-4 mt-4 flex px-6 sm:justify-center">
             <a :href="member.telegramLink || '#'"
                target="_blank" rel="noopener"
-               class="w-7 h-7 inline-flex items-center justify-center rounded-full hover:bg-red-100 dark:hover:bg-gray-800 group transition-colors duration-200">
-              <Icon name="i-stash-telegram" class="w-5 h-5 text-stone-200 dark:text-gray-400 group-hover:text-red-600 dark:group-hover:text-yellow-400 transition-colors duration-200" />
-
+               class="w-7 h-7 inline-flex items-center justify-center rounded-full hover:bg-red-100 dark:hover:bg-red-100 group transition-colors duration-200">
+              <Icon name="i-ri:telegram-2-fill" class="w-5 h-5 text-stone-200 dark:text-gray-400 group-hover:text-red-600 dark:group-hover:text-red-600 transition-colors duration-200" />
             </a>
             <a :href="member.emailLink ? `mailto:${member.emailLink}` : '#'"
-               class="w-7 h-7 inline-flex items-center justify-center rounded-full hover:bg-red-100 dark:hover:bg-gray-800 group transition-colors duration-200">
-              <Icon name="i-lucide-mail" class="w-5 h-5 text-stone-200 dark:text-gray-400 group-hover:text-red-600 dark:group-hover:text-yellow-400 transition-colors duration-200" />
+               class="w-7 h-7 inline-flex items-center justify-center rounded-full hover:bg-red-100 dark:hover:bg-red-100 group transition-colors duration-200">
+              <Icon name="i-lucide-mail" class="w-5 h-5 text-stone-200 dark:text-gray-400 group-hover:text-red-600 dark:group-hover:text-red-600 transition-colors duration-200" />
             </a>
             <button @click="openDetails(member)"
-                    class="w-7 h-7 inline-flex items-center justify-center rounded-full hover:bg-red-100 dark:hover:bg-gray-800 group transition-colors duration-200 cursor-pointer">
-              <Icon name="i-lucide-info" class="w-5 h-5 text-stone-200 dark:text-gray-400 group-hover:text-red-600 dark:group-hover:text-yellow-400 transition-colors duration-200" />
+                    class="w-7 h-7 inline-flex items-center justify-center rounded-full hover:bg-red-100 dark:hover:bg-red-100 group transition-colors duration-200 cursor-pointer">
+              <Icon name="i-lucide-info" class="w-5 h-5 text-stone-200 dark:text-gray-400 group-hover:text-red-600 dark:group-hover:text-red-600 transition-colors duration-200" />
             </button>
           </div>
         </div>
@@ -44,29 +56,25 @@
     </div>
   </div>
 
-  <UModal v-model:open="showModal" :title="activeMember?.name"
+  <UModal v-model:open="showModal" 
+        :title="activeMember?.name"
         :description="activeMember?.role"
-        :ui="{
-          base: 'relative text-left rtl:text-right overflow-hidden my-24 mx-4',
-          background: 'bg-white dark:bg-gray-900',
-          rounded: 'rounded-lg',
-          shadow: 'shadow-xl',
-          width: 'max-w-lg',
-          padding: 'p-6'
-        }"
-        :close="{
-          color: 'gray',
-          variant: 'ghost',
-          size: 'sm',
-          icon: 'i-heroicons-x-mark-20-solid',
-          class: 'absolute top-4 right-4 text-gray-400 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
-        }"
+        :class="[
+          'backdrop-blur-sm',
+          'bg-gradient-to-br from-white to-white/5',
+          'dark:from-gray-900/30 dark:to-gray-800/20',
+          'border border-white/5 dark:border-gray-500',
+          'shadow-lg shadow-gray-500',
+          'dark:shadow-white/5',
+          'rounded-xl'
+        ]"
+        
 >
   <template #header>
     <div>
       <div class="flex-1 mt-2">
         <h3 class="text-xl font-bold text-gray-800 dark:text-gray-100">{{ activeMember?.name }}</h3>
-        <p class="text-blue-500 dark:text-yellow-400 font-medium text-sm mt-2">{{ activeMember?.role }}</p>
+        <p class="text-blue-500 dark:text-orange-200 font-medium text-sm mt-2">{{ activeMember?.role }}</p>
       </div>
     </div>
   </template>
@@ -75,7 +83,7 @@
     <div class="space-y-4">
       <!-- Email -->
       <div class="group">
-        <div class="flex items-center gap-4 p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-yellow-500 hover:bg-blue-50/50 dark:hover:bg-gray-800 transition-all duration-200">
+        <div class="flex items-center gap-4 p-4 rounded-lg border border-gray-200  bg-white/50 hover:border-gray-300 dark:border-white/50 dark:bg-gray-800 transition-all duration-200">
           <div class="w-10 h-10  rounded-lg bg-blue-100 dark:bg-gray-800 flex items-center justify-center">
             <UIcon name="i-lucide-mail" class="size-5 text-blue-600 dark:text-blue-400" />
           </div>
@@ -83,7 +91,7 @@
             <span class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Email</span>
             <a 
               :href="`mailto:${activeMember?.email}`"
-              class="block text-gray-800 dark:text-gray-100 font-medium truncate hover:text-blue-600 dark:hover:text-blue-300 transition-colors duration-200 mt-0.5"
+              class="block text-gray-800 dark:text-gray-100 font-medium truncate hover:text-blue-600  dark:hover:text-blue-300 transition-colors duration-200 mt-0.5"
             >
               {{ activeMember?.email }}
             </a>
@@ -94,7 +102,7 @@
 
       <!-- Extension -->
       <div class="group">
-        <div class="flex items-center gap-4 p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-green-300 dark:hover:border-yellow-500 hover:bg-green-50/50 dark:hover:bg-gray-800 transition-all duration-200">
+        <div class="flex items-center gap-4 p-4 rounded-lg border border-gray-200  bg-white/50 hover:border-gray-300 dark:border-white/50 dark:bg-gray-800 transition-all duration-200">
           <div class="w-10 h-10 rounded-lg bg-green-100 dark:bg-gray-800 flex items-center justify-center">
             <UIcon name="i-lucide-phone" class="size-5 text-green-600 dark:text-green-400" />
           </div>
@@ -104,14 +112,14 @@
               {{ activeMember?.ext || '—' }}
             </p>
           </div>
-          <UIcon name="i-lucide-copy" class="size-4 text-gray-400 dark:text-gray-500 hover:text-green-500 dark:hover:text-yellow-500 transition-colors duration-200 cursor-pointer" 
+          <UIcon name="i-lucide-copy" class="size-4 text-gray-400 dark:text-gray-500 hover:text-blue-500 dark:hover:text-yellow-500 transition-colors duration-200 cursor-pointer" 
                  @click="copyToClipboard(activeMember?.ext)" />
         </div>
       </div>
 
       <!-- Phone -->
       <div class="group">
-        <div class="flex items-center gap-4 p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-purple-300 dark:hover:border-yellow-500 hover:bg-purple-50/50 dark:hover:bg-gray-800 transition-all duration-200">
+        <div class="flex items-center gap-4 p-4 rounded-lg border border-gray-200  bg-white/50 hover:border-gray-300 dark:border-white/50 dark:bg-gray-800 transition-all duration-200">
           <div class="w-10 h-10 rounded-lg bg-purple-100 dark:bg-gray-800 flex items-center justify-center">
             <UIcon name="i-lucide-smartphone" class="size-5 text-purple-600 dark:text-gray-400" />
           </div>
@@ -121,7 +129,7 @@
               {{ activeMember?.phone || '—' }}
             </p>
           </div>
-          <UIcon name="i-lucide-copy" class="size-4 text-gray-400 dark:text-gray-500 hover:text-purple-500 dark:hover:text-yellow-500 transition-colors duration-200 cursor-pointer"
+          <UIcon name="i-lucide-copy" class="size-4 text-gray-400 dark:text-gray-500 hover:text-blue-500 dark:hover:text-yellow-500 transition-colors duration-200 cursor-pointer"
                  @click="copyToClipboard(activeMember?.phone)" />
         </div>
       </div>
@@ -180,7 +188,7 @@ const teamMembers = [
     role: 'Officer, System Engineering',
     img: 'images/elodie-sok.jpg',
     email: 'elodie.sok@canadiabank.com.kh',
-    phone: '0963656212',
+    phone: '-',
     ext: '78196',
     telegramLink: 'https://t.me/msslody',
     emailLink: 'elodie.sok@canadiabank.com.kh',

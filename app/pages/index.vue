@@ -2,29 +2,10 @@
 </script>
 
 <template>
-  <div>
-    <!-- <UPageHero
-      title="Nuxt Starter Template"
-      description="A production-ready starter template powered by Nuxt UI. Build beautiful, accessible, and performant applications in minutes, not hours."
-    /> -->
-    
-    <UPageSection >
-      <UPageCTA
-        title="System Engineering Team"
-        description="Contact us if you want to automate your work..."
-        variant="subtle"
-        :links="[{
-          label: 'Contact Us',
-          to: '#',
-          target: '_blank',
-          trailingIcon: 'i-lucide-arrow-right',
-          color: 'neutral'
-        }, 
-       
-        ]"
-      />
-      <TeamGrid />
-    </UPageSection>
-    
+  <div class="min-h-screen bg-gradient-to-br from-gray-400 via-red-900 to-red-900
+              dark:from-red-900 dark:via-gray-900 dark:to-red-900
+  ">
+    <HeroSection />
+    <TeamGrid />
   </div>
 </template>
